@@ -64,36 +64,13 @@ This version is prepared to translate:
 
 
 
-## Contributing
-
-?
-
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-
-
 ## Versioning
-
-
 
 Version 1.0.0 - September 2018
 
 
-
 ## Authors
-
-
 
 ***Ana Neri** - [AnaNeri](https://github.com/AnaNeri)
 
 ***Afonso Rodrigues** 
-
-
-
-## License
-
-
-?
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
