@@ -1,7 +1,7 @@
 # Quipper To QISKit
 
 
-This project answer the need to translate the large circuits deloped in Quipper to the Python code that describes the QISKit circuit. 
+This project answers the need to translate the large circuits deloped in Quipper to the Python code that describes the QISKit circuit. 
 
 
 
