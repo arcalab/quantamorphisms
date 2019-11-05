@@ -1,7 +1,7 @@
 BEGIN {FS = "[/(//), /]";  RS = "\n"; OFS=" \n "; p=0; g[p] = "_";
 		circuit="qc";
 		quantum_r="qr";
-		classic_r="cr";}
+		classical_r="cr";}
 /"not"\]\([0-9]*\) with nocontrol$/ {gateT = $2;
 			 gateI = circuit ".x(" quantum_r "[" gateT;
 			 gateF = "])";
@@ -149,9 +149,9 @@ BEGIN {FS = "[/(//), /]";  RS = "\n"; OFS=" \n "; p=0; g[p] = "_";
 				   gateC2 = substr($7, 2, length($7)-2);
 				   gateI = circuit ".cx(" quantum_r "[" gateC1;
         	                   gateM = "]," quantum_r "[" gateC2 ;
-				   gateF = "],quantum_r[" gateT "])";
+				   gateF = "]," quantum_r "[" gateT "])";
 				   gate = gateI gateM gateF;
-				   print gate; print "++";}
+				   print gate; }
 				else if (simb1 == "+" && simb2 == "-") {
 				   gateT = $2;
 				   gateC1 = substr($5, 12);
@@ -163,7 +163,7 @@ BEGIN {FS = "[/(//), /]";  RS = "\n"; OFS=" \n "; p=0; g[p] = "_";
 				   gate = gateI gateM gateF;
 				   print gateAux;
 				   print gate;
-                                   print gateAux; print "+-";}
+                   print gateAux; }
 				else if (simb1 == "-" && simb2 == "+") {
 				   gateT = $2;
 				   gateC1 = substr($5, 12);
@@ -175,7 +175,7 @@ BEGIN {FS = "[/(//), /]";  RS = "\n"; OFS=" \n "; p=0; g[p] = "_";
 				   gate = gateI gateM gateF;
 				   print gateAux;
 				   print gate;
-				   print gateAux; print "-+";}
+				   print gateAux;}
 				else if (simb1 == "-" && simb2 == "-") {
 				   gateT = $2;
 				   gateC1 = substr($5, 12);
@@ -204,7 +204,7 @@ BEGIN {FS = "[/(//), /]";  RS = "\n"; OFS=" \n "; p=0; g[p] = "_";
         	                   gateM = "]," quantum_r "[" gateC2 ;
 				   gateF = "]," quantum_r "[" gateT "])";
 				   gate = gateI gateM gateF;
-				   print gate; print "++";}
+				   print gate; }
 				else if (simb1 == "+" && simb2 == "-") {
 				   gateT = $2;
 				   gateC1 = substr($5, 12);
@@ -216,7 +216,7 @@ BEGIN {FS = "[/(//), /]";  RS = "\n"; OFS=" \n "; p=0; g[p] = "_";
 				   gate = gateI gateM gateF;
 				   print gateAux;
 				   print gate;
-                                   print gateAux; print "+-";}
+                   print gateAux; }
 				else if (simb1 == "-" && simb2 == "+") {
 				   gateT = $2;
 				   gateC1 = substr($5, 12);
@@ -228,7 +228,7 @@ BEGIN {FS = "[/(//), /]";  RS = "\n"; OFS=" \n "; p=0; g[p] = "_";
 				   gate = gateI gateM gateF;
 				   print gateAux;
 				   print gate;
-				   print gateAux; print "-+";}
+				   print gateAux;}
 				else if (simb1 == "-" && simb2 == "-") {
 				   gateT = $2;
 				   gateC1 = substr($5, 12);
@@ -254,7 +254,7 @@ BEGIN {FS = "[/(//), /]";  RS = "\n"; OFS=" \n "; p=0; g[p] = "_";
 	   for (i in gateB){ 
 		for (j in g){ 
 			if (gateB[i] == g[j]){ 
-				print circuit ".barrier(" quantum_r "[" gateB[i] "])";
+				print "#" circuit ".reset(" quantum_r "[" gateB[i] "])";
 				delete g[j];
 			}
 		}	   
